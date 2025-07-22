@@ -12,4 +12,8 @@ describe('String Calculator', () => {
     test('should return sum of comma-separated numbers', () => { 
         expect(add('2,3,1')).toBe(6)
      })
+
+     test('should handle newlines as separators like commas', () => { 
+        expect(add('2\n3,1')).toBe(6)
+      })
 })
