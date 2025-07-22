@@ -16,4 +16,8 @@ describe('String Calculator', () => {
      test('should handle newlines as separators like commas', () => { 
         expect(add('2\n3,1')).toBe(6)
       })
+
+      test('should support custom delimiter', () => { 
+        expect(add('//;\n1;3;2')).toBe(6)
+       })
 })
