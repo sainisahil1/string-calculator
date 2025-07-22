@@ -9,15 +9,19 @@ describe('String Calculator', () => {
         expect(add('5')).toBe(5)
     })
 
-    test('should return sum of comma-separated numbers', () => { 
+    test('should return sum of comma-separated numbers', () => {
         expect(add('2,3,1')).toBe(6)
-     })
+    })
 
-     test('should handle newlines as separators like commas', () => { 
+    test('should handle newlines as separators like commas', () => {
         expect(add('2\n3,1')).toBe(6)
-      })
+    })
 
-      test('should support custom delimiter', () => { 
+    test('should support custom delimiter', () => {
         expect(add('//;\n1;3;2')).toBe(6)
-       })
+    })
+
+    test('should throw an Exception for negative numbers', () => { 
+        expect(() => add('1,-2,-5')).toThrow('Negatives not allowed: -2, -5')
+     })
 })

@@ -11,7 +11,15 @@ function add(numbers){
     }
     
     const splitNums = numStr.split(delimiter);
-    const sum = splitNums.reduce((acc, curr) => acc + parseInt(curr), 0);
+    const parsedNums = splitNums.map(n => parseInt(n));
+
+    const negativeNums = parsedNums.filter(n => n < 0);
+    if(negativeNums.length > 0){
+        throw new Error(`Negatives not allowed: ${negativeNums.join(', ')}`);
+    }
+
+    const sum = parsedNums.reduce((acc, curr) => acc + curr, 0);
+
     return sum;
 }
 
